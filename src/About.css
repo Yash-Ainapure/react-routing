@@ -1,0 +1,12 @@
+.About{
+   background-color: aquamarine;
+   width: 100%;
+   height: 1000px;
+   padding: 0;
+   margin: 0px;
+}
+.spiner{
+   position: absolute;
+   top: 45%;
+   right:50%;
+}
