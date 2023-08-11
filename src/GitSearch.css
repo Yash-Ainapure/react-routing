@@ -1,0 +1,10 @@
+.form-floating{
+   width: 50%;
+   margin: 20px auto;
+}
+#submitBtn{
+   width: 150px;
+}
+.spinner-border{
+   display: none;
+}

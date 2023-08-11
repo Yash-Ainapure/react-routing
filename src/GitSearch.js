@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Users.css';
+import './GitSearch.css';
 function Users({ avatar, url, username }) {
 
    return (
@@ -18,9 +19,12 @@ function GitSearch() {
       setUsername(e.target.value);
    }
    const handleSubmit = async (e) => {
+      const css=document.querySelector('.spinner-border');
+      css.style.display="block";
       e.preventDefault();
       const result = await fetchUsername(userName);
-      setResults([ ...result]);
+      setResults([...result]);
+      css.style.display="none";
    }
    async function fetchUsername(userName) {
       try {
@@ -35,11 +39,19 @@ function GitSearch() {
 
    return (
       <div>
-         GitSearch demo
+         <h2>GitSearch demo</h2>
          <form>
-            <input type="text" name="username" onChange={handleChange}></input>
-            <button onClick={handleSubmit}>Submit</button>
+            <div className="form-floating mb-3">
+               <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="username" onChange={handleChange} />
+               <label for="floatingInput">Username or EmailAddress </label>
+            </div>
+            <button type="submit" onClick={handleSubmit} id="submitBtn" className="btn btn-primary">Submit</button>
          </form>
+         <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+               <span className="visually-hidden">Loading...</span>
+            </div>
+         </div>
          <div>
             {
                results.map(users => (

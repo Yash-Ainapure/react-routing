@@ -36,8 +36,7 @@ function App() {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-
-          <hr />
+          <hr/>
           <Routes>
             <Route path='/' element={<Home />}></Route>
 
